@@ -3,51 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>小薇原谅礼包</title>
+    <title>陆小元课堂·反诈特辑</title>
     <style>
         body {
             margin: 0;
             padding: 20px;
             min-height: 100vh;
-            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            background: linear-gradient(135deg, #f0f9ff 0%, #cbebff 100%);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            font-family: "Comic Sans MS", cursive;
+        }
+
+        /* 标题样式 */
+        .class-title {
+            font-size: 2rem;
+            color: #ff6600;
+            text-shadow: 2px 2px 4px rgba(255, 100, 0, 0.2);
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        /* 反诈装饰 */
+        .warning-icon {
+            position: absolute;
+            font-size: 25px;
+            color: #ff4444;
+            animation: floatIcon 4s infinite;
         }
 
         .text-container {
             text-align: center;
             margin-bottom: 40px;
             animation: float 3s ease-in-out infinite;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 128, 255, 0.2);
         }
 
         .funny-text {
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             font-weight: bold;
-            color: #e74c3c;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            color: #0066cc;
             margin: 10px 0;
-            transform: rotate(-5deg);
+            transform: rotate(-2deg);
             animation: shake 2s infinite;
+        }
+        .funny-text span {
+            color: #ff4444;
+            font-size: 2.2rem;
         }
 
         .btn {
-            padding: 15px 30px;
-            font-size: 1.2rem;
-            background: linear-gradient(45deg, #4CAF50, #8BC34A);
-            color: white;
+            padding: 15px 35px;
+            font-size: 1.3rem;
+            background: linear-gradient(45deg, #ffcc00, #ff9900);
+            color: #333;
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(255, 165, 0, 0.3);
             transition: all 0.3s ease;
+            font-weight: bold;
         }
-
         .btn:hover {
             transform: scale(1.1) rotate(2deg);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 20px rgba(255, 165, 0, 0.5);
         }
 
         .success-modal {
@@ -57,55 +82,75 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.7);
+            background: rgba(0,0,0,0.6);
             align-items: center;
             justify-content: center;
             z-index: 100;
         }
-
         .modal-content {
             background: white;
             padding: 30px;
             border-radius: 20px;
             text-align: center;
             animation: pop 0.5s;
+            box-shadow: 0 0 20px rgba(255, 165, 0, 0.4);
         }
-
         .modal-text {
             font-size: 1.5rem;
-            color: #333;
+            color: #0066cc;
             margin-bottom: 20px;
         }
+        .modal-text span {
+            font-size: 2rem;
+            color: #ff9900;
+        }
 
+        /* 动画 */
+        @keyframes bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
         @keyframes float {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-15px); }
         }
-
         @keyframes shake {
-            0%, 100% { transform: rotate(-5deg); }
-            50% { transform: rotate(5deg); }
+            0%, 100% { transform: rotate(-2deg); }
+            50% { transform: rotate(2deg); }
         }
-
         @keyframes pop {
             from { transform: scale(0); }
             to { transform: scale(1); }
         }
+        @keyframes floatIcon {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(10deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
     </style>
 </head>
 <body>
+    <!-- 课堂标题 -->
+    <div class="class-title">📚 陆小元课堂开讲啦！</div>
+
+    <!-- 反诈装饰图标 -->
+    <div class="warning-icon" style="top: 20%; left: 15%; animation-delay: 0s;">⚠️</div>
+    <div class="warning-icon" style="top: 70%; left: 80%; animation-delay: 1s;">🔒</div>
+    <div class="warning-icon" style="top: 30%; left: 85%; animation-delay: 2s;">💡</div>
+
     <div class="text-container">
-        <div class="funny-text">小薇，我错了~</div>
-        <div class="funny-text" style="color: #9b59b6; transform: rotate(3deg);">真的知道错啦！</div>
-        <div class="funny-text" style="color: #3498db; transform: rotate(-2deg);">原谅我嘛~</div>
+        <div class="funny-text">【反诈小课堂】</div>
+        <div class="funny-text" style="transform: rotate(1deg);">自称客服说你<span>中大奖</span>？</div>
+        <div class="funny-text" style="transform: rotate(-1deg);">要你打钱的都是<span>骗子</span>！</div>
+        <div class="funny-text" style="transform: rotate(1deg);">陆小元认证的礼包在这~</div>
     </div>
 
-    <button class="btn" onclick="showSuccess()">原谅，领取礼包</button>
+    <button class="btn" onclick="showSuccess()">领取陆小元专属礼包</button>
 
     <div class="success-modal" id="successModal">
         <div class="modal-content">
-            <div class="modal-text">领取成功！</div>
-            <div class="modal-text">请截图发送至客服</div>
+            <div class="modal-text"><span>礼包到手！</span></div>
+            <div class="modal-text">截图发给客服，陆小元课堂结业啦~</div>
         </div>
     </div>
 
